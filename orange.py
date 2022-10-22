@@ -9,14 +9,15 @@ class Orange:
     OS_VERSION = "6.0"
     PLATFORM = "android"
     COUNTRY = "MD"
-    HOST = "https://sso.orange.md"
+    AUTH_HOST = "https://sso.orange.md"
+    HOST = "https://sso.orange.com"
 
     def __init__(self, username, password, lang="EN"):
         self.lang = lang
         self.wassup = self.login(username, password)
 
     def login(self, username, password):
-        r = requests.post(self.HOST + "/be/index.php",
+        r = requests.post(self.AUTH_HOST + "/be/index.php",
         params={"a": "login"},
         json={
             "username": username,
